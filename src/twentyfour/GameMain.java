@@ -19,12 +19,12 @@ public class GameMain {
 
     private void setDifficulty() {
         System.out.println("Please pick a difficulty level to start. ");
-        System.out.print("Enter a number between 1 and 5. \n1 for the easiest, and 5 for the hardest.");
+        System.out.print("Enter a number between 1 and 5. \n1 for the easiest, and 5 for the hardest: ");
 
         try {
             int difficulty = Integer.parseInt(Keyboard.readInput());
             numbersGenerator = new NumbersGenerator(difficulty * 10);
-            System.out.println("Awesome! You've picked a difficulty level of " + difficulty +". The game is ON!\n");
+            System.out.println("Awesome, you've picked a difficulty level of " + difficulty +". The game is ON!\n");
         } catch (NumberFormatException e) {
             setDifficulty();
         }
