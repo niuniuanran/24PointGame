@@ -1,5 +1,5 @@
-To play the game, run the Main class in the industry package.
+To play the game, run the GameMain class in the twentyfour package.
 
 
-To do:
-Add functions like Math.pow/abs in
+Haven't figured out how to:
+Add functions like Math.pow/abs in the operations
