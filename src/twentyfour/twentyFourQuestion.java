@@ -1,4 +1,4 @@
-package ictgradschool.industry.questions;
+package twentyfour;
 import org.apache.commons.jexl3.*;
 
 public class twentyFourQuestion implements IQuestion {

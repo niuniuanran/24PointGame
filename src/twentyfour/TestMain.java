@@ -1,6 +1,4 @@
-package ictgradschool.industry;
-
-import ictgradschool.industry.questions.*;
+package twentyfour;
 
 public class TestMain {
 
