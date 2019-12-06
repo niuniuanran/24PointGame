@@ -6,6 +6,7 @@ public class NumbersGenerator {
     private int max_num = 20;
     private static final String[] ops = new String[]{"+", "-", "*", "/", "%"};
 
+
     public NumbersGenerator(int max_num) {
         this.max_num = max_num;
     }
@@ -14,14 +15,15 @@ public class NumbersGenerator {
         return (int) (Math.random() * max_num);
     }
 
-    int[] generateCombo() {
+   NumAnsCombo generateCombo() {
         int[] nums = new int[4];
         for (int i = 0; i < 4; i++) nums[i] = generateNumber();
-        if (haveSolution(nums)) return nums;
+        String ans = haveSolution(nums);
+        if (ans != null) return new NumAnsCombo(nums, ans);
         else return generateCombo();
     }
 
-    boolean haveSolution(int[] nums) {
+    String haveSolution(int[] nums) {
         JexlContext jc = new MapContext();
         jc.set("res", 0);
         JexlEngine jexl = new JexlBuilder().create();
@@ -40,14 +42,13 @@ public class NumbersGenerator {
                         }
                         int res = Integer.parseInt(jc.get("res").toString());
                         if (res == 24) {
-                            //System.out.println(currExpression);
-                            return true;
+                            return currExpression;
                         }
                     }
                 }
             }
         }
-        return false;
+        return null;
     }
 
     private static String generateExpression(int index, String ops1, String ops2, String ops3, int nums1, int nums2, int nums3, int nums4) {
@@ -64,12 +65,6 @@ public class NumbersGenerator {
                 return nums1 + ops1 + "(" + nums2 + ops2 + "(" + nums3 + ops3 + nums4 + "))";
         }
         return null;
-    }
-
-    public static void main(String[] args) {
-        NumbersGenerator numbersGenerator = new NumbersGenerator(10);
-        int[] combo = numbersGenerator.generateCombo();
-        for (int value : combo) System.out.println(value);
     }
 
 }

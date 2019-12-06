@@ -73,11 +73,11 @@ public class TestMain {
      */
     private IQuestion[] createQuestions() {
         IQuestion[] questions = new IQuestion[5];
-        questions[0] = new twentyFourQuestion(1,2,3,4);
-        questions[1] = new twentyFourQuestion(2,2,6,4);
-        questions[2] = new twentyFourQuestion(3,2,2,4);
-        questions[3] = new twentyFourQuestion(0,8,3,4);
-        questions[4] = new twentyFourQuestion(5,3,1,4);
+        questions[0] = new TwentyFourQuestion(1,2,3,4);
+        questions[1] = new TwentyFourQuestion(2,2,6,4);
+        questions[2] = new TwentyFourQuestion(3,2,2,4);
+        questions[3] = new TwentyFourQuestion(0,8,3,4);
+        questions[4] = new TwentyFourQuestion(5,3,1,4);
 
 
         return questions;

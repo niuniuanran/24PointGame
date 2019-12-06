@@ -1,7 +1,7 @@
 package twentyfour;
 import org.apache.commons.jexl3.*;
 
-public class twentyFourQuestion implements IQuestion {
+public class TwentyFourQuestion implements IQuestion {
     private int a;
     private int b;
     private int c;
@@ -9,7 +9,7 @@ public class twentyFourQuestion implements IQuestion {
     private JexlContext jc ;
     private int result;
 
-    public twentyFourQuestion(int a, int b, int c, int d){
+    public TwentyFourQuestion(int a, int b, int c, int d){
         this.a = a;
         this.b = b;
         this.c = c;
@@ -28,6 +28,7 @@ public class twentyFourQuestion implements IQuestion {
     public void printQuestion() {
         System.out.println("Please write a java expression using ALL of a, b, c, d that evaluates to 24.");
         System.out.printf("Your numbers are: a = %d, b = %d, c = %d, d = %d\n", a, b, c, d);
+        System.out.println("You have three attempts.");
 
     }
 
