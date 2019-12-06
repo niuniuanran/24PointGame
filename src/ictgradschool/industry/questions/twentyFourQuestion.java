@@ -39,6 +39,12 @@ public class twentyFourQuestion implements IQuestion {
             System.out.println("You need to use ALL four of a,b,c,d!");
             return false;
         }
+        for (char c : userAnswer.toCharArray()) {
+            if (c <= '9' && c >='0') {
+                System.out.println("You should not be using numbers!");
+                return false;
+            }
+        }
 
         try{
             JexlEngine jexl = new JexlBuilder().create();
