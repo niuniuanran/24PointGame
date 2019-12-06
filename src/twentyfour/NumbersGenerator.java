@@ -2,28 +2,38 @@ package twentyfour;
 
 import org.apache.commons.jexl3.*;
 
-public class NumbersGenerator {
-    private int max_num = 20;
+class NumbersGenerator {
+    private int max_num;
     private static final String[] ops = new String[]{"+", "-", "*", "/", "%"};
 
-
-    public NumbersGenerator(int max_num) {
-        this.max_num = max_num;
+    NumbersGenerator() {
+        this.max_num = 10;
     }
 
-    private int generateNumber() {
-        return (int) (Math.random() * max_num);
+    NumbersGenerator(int max_num) {
+        this.max_num = Math.max(max_num, 10);
     }
+
+    private int generateNumber(boolean easy, boolean hard) {
+        if (easy) return (int) (Math.random() * 10) + 1;
+        if (hard) return (int) (Math.random() * 10 + (max_num - 9));
+        else return (int) (Math.random() * max_num);
+    }
+
 
    NumAnsCombo generateCombo() {
         int[] nums = new int[4];
-        for (int i = 0; i < 4; i++) nums[i] = generateNumber();
-        String ans = haveSolution(nums);
+       nums[0] = generateNumber(true, false);
+       nums[1] = generateNumber(false, false);
+       nums[2] = generateNumber(false, false);
+       nums[3] = generateNumber(false, true);
+
+       String ans = haveSolution(nums);
         if (ans != null) return new NumAnsCombo(nums, ans);
         else return generateCombo();
     }
 
-    String haveSolution(int[] nums) {
+    private String haveSolution(int[] nums) {
         JexlContext jc = new MapContext();
         jc.set("res", 0);
         JexlEngine jexl = new JexlBuilder().create();

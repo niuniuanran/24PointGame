@@ -1,7 +1,5 @@
 package twentyfour;
 
-import java.security.Key;
-
 public class GameMain {
     private NumbersGenerator numbersGenerator;
 
@@ -21,12 +19,12 @@ public class GameMain {
 
     private void setDifficulty() {
         System.out.println("Please pick a difficulty level to start. ");
-        System.out.println("Enter a number between 1 and 5. \n1 for the easiest, and 5 for the hardest.");
+        System.out.print("Enter a number between 1 and 5. \n1 for the easiest, and 5 for the hardest.");
 
         try {
             int difficulty = Integer.parseInt(Keyboard.readInput());
             numbersGenerator = new NumbersGenerator(difficulty * 10);
-            System.out.println("Awesome! You've picked a difficulty level of " + difficulty +". Game is ON!\n");
+            System.out.println("Awesome! You've picked a difficulty level of " + difficulty +". The game is ON!\n");
         } catch (NumberFormatException e) {
             setDifficulty();
         }
@@ -35,7 +33,8 @@ public class GameMain {
 
     private void singleGame() {
         NumAnsCombo combo = numbersGenerator.generateCombo();
-        TwentyFourQuestion question24 = new TwentyFourQuestion(combo.nums[0],combo.nums[1],combo.nums[2],combo.nums[3]);
+        int[] numbers = combo.getNums();
+        TwentyFourQuestion question24 = new TwentyFourQuestion(numbers[0],numbers[1],numbers[2],numbers[3]);
         question24.printQuestion();
         boolean gotIt = false;
         for (int i = 0; i < 3; i++) {
@@ -50,19 +49,19 @@ public class GameMain {
                 continue;
             }
             if (question24.isCorrect(userAnswer)) {
-                System.out.println("Yay! You got it!!\n");
+                System.out.println("Yay! You got it!!");
                 gotIt = true;
                 break;
             }
         }
         if (!gotIt) {
             System.out.println("Oh no! You used up all your three attempts...");
-            System.out.println("Press 'Y' to see a sample answer");
+            System.out.print("Press 'Y' to see a sample answer ");
             if (Keyboard.readInput().toUpperCase().charAt(0) == 'Y')
-                System.out.println("A sample answer could be: " + combo.ans);
+                System.out.println("A sample answer could be: " + combo.getAns());
         }
 
-        System.out.println("\nEnter Y to start another game, or D to pick a new difficulty level, or any other key to exit");
+        System.out.print("\nEnter Y to start another game, or D to pick a new difficulty level, or any other key to exit ");
         char choice = Keyboard.readInput().toUpperCase().charAt(0);
         if (choice == 'Y') singleGame();
         else if (choice == 'D') {setDifficulty();singleGame();}

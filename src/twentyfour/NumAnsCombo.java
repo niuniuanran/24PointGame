@@ -1,19 +1,19 @@
 package twentyfour;
 
 class NumAnsCombo {
-    int[] nums;
-    String ans;
+    private int[] nums;
+    private String ans;
 
-    public NumAnsCombo(int[] nums, String ans) {
+    NumAnsCombo(int[] nums, String ans) {
         this.nums = nums;
         this.ans = ans;
     }
 
-    public String getAns() {
+    String getAns() {
         return ans;
     }
 
-    public int[] getNums() {
+    int[] getNums() {
         return nums;
     }
 }
