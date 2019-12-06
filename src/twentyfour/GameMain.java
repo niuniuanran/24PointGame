@@ -27,6 +27,7 @@ public class GameMain {
             System.out.println("Awesome, you've picked a difficulty level of " + difficulty +". The game is ON!\n");
         } catch (NumberFormatException e) {
             setDifficulty();
+
         }
 
     }
