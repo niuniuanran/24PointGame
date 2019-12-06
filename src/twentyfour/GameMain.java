@@ -62,7 +62,7 @@ public class GameMain {
                 System.out.println("A sample answer could be: " + combo.ans);
         }
 
-        System.out.println("\nPress Y to start another game, D to pick a new difficulty level, any other key to exit");
+        System.out.println("\nEnter Y to start another game, or D to pick a new difficulty level, or any other key to exit");
         char choice = Keyboard.readInput().toUpperCase().charAt(0);
         if (choice == 'Y') singleGame();
         else if (choice == 'D') {setDifficulty();singleGame();}
