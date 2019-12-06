@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="commons-jexl3-3.1-javadoc">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/commons-jexl3-3.1-tests.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-jexl3-3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-logging-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/commons-jexl3-3.1-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-logging-1.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/commons-jexl3-3.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-jexl3-3.1-test-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
